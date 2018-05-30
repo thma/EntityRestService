@@ -1,0 +1,6 @@
+[Distribution "splitHeatingHotwater" (FilterByCostType Heating) (ByRatios [0.18,0.82]) (Distributions ["hotWater","splitHeating"]),
+Distribution "splitHeating" (FromPreDistribution "splitHeatingHotwater") (ByRatios [0.3,0.7]) (Distributions ["heatBase","heatConsumption"]),
+Distribution "hotWater" (FromPreDistribution "splitHeatingHotwater") (ByKey CONSUMPTION_WATER) AllRecipients,
+Distribution "heatBase" (FromPreDistribution "splitHeating") (ByKey AREA) AllRecipients,
+Distribution "heatConsumption" (FromPreDistribution "splitHeating") (ByKey CONSUMPTION_HCA) AllRecipients,
+Distribution "ancillaryCosts" (FilterByCostType AncillaryCosts) (ByKey AREA) AllRecipients,Totals AllRecipients]

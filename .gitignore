@@ -1,0 +1,6 @@
+.stack-work
+.idea
+client_session_key.aes
+out
+BillingService.iml
+cabal.config

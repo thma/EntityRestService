@@ -1,0 +1,90 @@
+[
+    [
+        "ALL",
+        {
+            "tag": "Recipients",
+            "contents": [
+                "0001",
+                "0002",
+                "0003"
+            ]
+        }
+    ],
+    [
+        "Heating",
+        {
+            "tag": "Amount",
+            "contents": 12000
+        }
+    ],
+    [
+        "AncillaryCosts",
+        {
+            "tag": "Amount",
+            "contents": 6000
+        }
+    ],
+    [
+        "0001.AREA",
+        {
+            "tag": "Amount",
+            "contents": 100
+        }
+    ],
+    [
+        "0002.AREA",
+        {
+            "tag": "Amount",
+            "contents": 50
+        }
+    ],
+    [
+        "0003.AREA",
+        {
+            "tag": "Amount",
+            "contents": 50
+        }
+    ],
+    [
+        "0001.CONSUMPTION_HCA",
+        {
+            "tag": "Amount",
+            "contents": 90
+        }
+    ],
+    [
+        "0002.CONSUMPTION_HCA",
+        {
+            "tag": "Amount",
+            "contents": 60
+        }
+    ],
+    [
+        "0003.CONSUMPTION_HCA",
+        {
+            "tag": "Amount",
+            "contents": 30
+        }
+    ],
+    [
+        "0001.CONSUMPTION_WATER",
+        {
+            "tag": "Amount",
+            "contents": 200
+        }
+    ],
+    [
+        "0002.CONSUMPTION_WATER",
+        {
+            "tag": "Amount",
+            "contents": 300
+        }
+    ],
+    [
+        "0003.CONSUMPTION_WATER",
+        {
+            "tag": "Amount",
+            "contents": 100
+        }
+    ]
+]

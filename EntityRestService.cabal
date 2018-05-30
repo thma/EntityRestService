@@ -1,0 +1,66 @@
+-- The name of the package.
+name:                EntityRestService
+
+-- The package version.  See the Haskell package versioning policy (PVP) 
+-- for standards guiding when and how versions should be incremented.
+-- https://wiki.haskell.org/Package_versioning_policy
+-- PVP summary:      +-+------- breaking API changes
+--                   | | +----- non-breaking API additions
+--                   | | | +--- code changes with no API change
+version:             0.1.0.0
+
+-- A short (one-line) description of the package.
+-- synopsis: A simple REST Service on top of the DistributionEngine library.           
+
+-- A longer description of the package.
+-- description:         
+
+-- The package author(s).
+author:              Thomas Mahler
+
+-- An email address to which users can send suggestions, bug reports, and 
+-- patches.
+maintainer:          thma@apache.org
+
+-- A copyright notice.
+-- copyright:           
+
+category:            Network
+
+build-type:          Simple
+
+-- Constraint on the version of Cabal needed to build this package.
+cabal-version:       >=2.0
+
+
+executable server
+  -- .hs or .lhs file containing the Main module.
+  main-is:             Server/Main.hs
+  other-modules:       Util.Helper
+  -- LANGUAGE extensions used by modules in this package.
+  other-extensions:    OverloadedStrings
+  build-depends:
+                   base, parsec, HTTP, network, warp, wai, http-types
+                 , blaze-builder, utf8-string, aeson, aeson-pretty
+                 , text, bytestring, http-conduit
+                 , deepseq
+                 , mtl
+                 , transformers
+                 , directory
+                 , yesod
+                 , yesod-core
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  
+executable client
+  -- .hs or .lhs file containing the Main module.
+  main-is:             Client/Main.hs
+  other-modules:       Util.Helper
+  -- LANGUAGE extensions used by modules in this package.
+  other-extensions:    OverloadedStrings
+  build-depends:
+                   base, parsec, HTTP, network, warp, wai, http-types
+                 , blaze-builder, utf8-string, aeson, aeson-pretty
+                 , text, bytestring, http-conduit
+  hs-source-dirs:      src
+  default-language:    Haskell2010  
