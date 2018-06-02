@@ -1,4 +1,3 @@
---{-# LANGUAGE RecursiveDo #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 module Server.Backend
     (
@@ -16,8 +15,6 @@ import           System.Directory           (doesFileExist)
 import           Control.DeepSeq            (rnf)
 import           Text.Read                  (readEither)
 import           Data.Typeable
-
-
 
 -- | load a persistent entity of type t and identified by id from the backend
 retrieveEntity :: forall a. (FromJSON a, Read a, Typeable a) => Text -> IO a
