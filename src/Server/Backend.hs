@@ -2,12 +2,17 @@
 module Server.Backend
     (
       retrieveEntity
+    , storeEntity
     ) where
 
 import           Control.Exception          hiding (Handler)
 import           Yesod
 import           Data.Aeson
 import           Data.Text
+import           Data.Aeson.Text (encodeToTextBuilder)
+import           Data.Text
+import           Data.Text.Lazy (toStrict)
+import           Data.Text.Lazy.Builder (toLazyText)
 import           Control.Monad.Trans.Except
 import           Control.Monad.Trans.Class  (lift)
 import qualified Data.ByteString.Lazy       as B
@@ -16,7 +21,8 @@ import           Control.DeepSeq            (rnf)
 import           Text.Read                  (readEither)
 import           Data.Typeable
 
--- | load a persistent entity of type t and identified by id from the backend
+
+-- | load persistent entity of type a and identified by id from the backend
 retrieveEntity :: forall a. (FromJSON a, Read a, Typeable a) => Text -> IO a
 retrieveEntity id = do
     -- in our simple server documents can be either JSON or Read (i.e. plain text)
@@ -29,6 +35,18 @@ retrieveEntity id = do
                 else
                     parseFromTxtFile  textFileName :: Read a => IO a
     return result
+
+-- | store persistent entity of type a and identified by id to the backend
+storeEntity :: forall a. (ToJSON a, Show a, Typeable a) => Text -> a -> IO ()
+storeEntity id entity = do
+  let textFileName = getPath (typeRep ([] :: [a])) id ".txt"
+  let jsonFileName = getPath (typeRep ([] :: [a])) id ".json"
+  writeFile textFileName (show entity)
+  writeFile jsonFileName (showJson entity)
+
+showJson :: (ToJSON a) => a -> String
+showJson = unpack . toStrict . toLazyText . encodeToTextBuilder . toJSON
+
 
 -- | compute path of data file
 getPath :: TypeRep -> Text -> String -> String

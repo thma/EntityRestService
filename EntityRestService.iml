@@ -10,6 +10,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Cabal-2.0.1.1" level="project" />
     <orderEntry type="library" name="HTTP-4000.3.11" level="project" />
+    <orderEntry type="library" name="Win32-2.5.4.1" level="project" />
     <orderEntry type="library" name="aeson-1.2.4.0" level="project" />
     <orderEntry type="library" name="aeson-compat-0.3.7.1" level="project" />
     <orderEntry type="library" name="aeson-pretty-0.8.7" level="project" />
@@ -91,6 +92,7 @@
     <orderEntry type="library" name="lifted-base-0.2.3.12" level="project" />
     <orderEntry type="library" name="memory-0.14.16" level="project" />
     <orderEntry type="library" name="mime-types-0.1.0.7" level="project" />
+    <orderEntry type="library" name="mintty-0.1.2" level="project" />
     <orderEntry type="library" name="monad-control-1.0.2.3" level="project" />
     <orderEntry type="library" name="monad-logger-0.3.28.5" level="project" />
     <orderEntry type="library" name="monad-loops-0.4.3" level="project" />
@@ -146,9 +148,7 @@
     <orderEntry type="library" name="transformers-base-0.4.4" level="project" />
     <orderEntry type="library" name="transformers-compat-0.5.1.4" level="project" />
     <orderEntry type="library" name="typed-process-0.2.2.0" level="project" />
-    <orderEntry type="library" name="unix-2.7.2.2" level="project" />
     <orderEntry type="library" name="unix-compat-0.5.0.1" level="project" />
-    <orderEntry type="library" name="unix-time-0.3.8" level="project" />
     <orderEntry type="library" name="unliftio-0.2.7.0" level="project" />
     <orderEntry type="library" name="unliftio-core-0.1.1.0" level="project" />
     <orderEntry type="library" name="unordered-containers-0.2.9.0" level="project" />

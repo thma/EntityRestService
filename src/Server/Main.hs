@@ -9,7 +9,7 @@ module Main where
 import           Data.Text
 import           Yesod
 import           Shared.Entities
-import           Server.Backend             (retrieveEntity)
+import           Server.Backend             (retrieveEntity, storeEntity)
 import           Server.HaskellShow
 import           Server.ErrorHandler        (hsMimeTypeAwareErrorHandler)
 import           Util.Helper                (readFromArgsOrDefault)
@@ -25,7 +25,7 @@ instance Yesod App where
     errorHandler = hsMimeTypeAwareErrorHandler
 
 mkYesod "App" [parseRoutes|
-/user/#Text    UserR  GET
+/user/#Text    UserR  GET POST
 /post/#Text    PostR  GET
 |]
 
@@ -34,6 +34,12 @@ getUserR :: Text -> Handler TypedContent
 getUserR id = do
     user <- liftIO $ (retrieveEntity id :: IO User)
     returnValidRep user
+
+postUserR :: Text -> Handler ()
+postUserR id = do
+  newUser <- requireJsonBody :: Handler User
+  liftIO $ storeEntity id newUser
+  return ()
 
 getPostR :: Text -> Handler TypedContent
 getPostR id = do

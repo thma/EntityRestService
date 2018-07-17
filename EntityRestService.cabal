@@ -36,7 +36,7 @@ cabal-version:       >=2.0
 executable server
   -- .hs or .lhs file containing the Main module.
   main-is:             Server/Main.hs
-  other-modules:       Util.Helper
+  other-modules:       Util.Helper, Server.Backend, Server.ErrorHandler, Server.HaskellShow, Shared.Entities
   -- LANGUAGE extensions used by modules in this package.
   other-extensions:    OverloadedStrings
   build-depends:
@@ -55,7 +55,7 @@ executable server
 executable client
   -- .hs or .lhs file containing the Main module.
   main-is:             Client/Main.hs
-  other-modules:       Util.Helper
+  other-modules:       Util.Helper, Shared.Entities
   -- LANGUAGE extensions used by modules in this package.
   other-extensions:    OverloadedStrings
   build-depends:
