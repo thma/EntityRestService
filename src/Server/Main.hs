@@ -39,7 +39,6 @@ postUserR :: Text -> Handler ()
 postUserR id = do
   newUser <- requireJsonBody :: Handler User
   liftIO $ storeEntity id newUser
-  return ()
 
 getPostR :: Text -> Handler TypedContent
 getPostR id = do
