@@ -17,10 +17,9 @@ getJSON port = simpleHttp $ "http://127.0.0.1:" ++ port ++ "/user/4711"
 -- | Otherwise print out the unmarshalled Store data 
 main :: IO ()
 main = do
-    port <- liftM show $ readFromArgsOrDefault 3000
-    -- call REST service and unmarshall JSON data into Store instance 
-    json <- getJSON port
-
-    case eitherDecode json :: (Either String User) of
-        Left err   -> putStrLn err  -- report error
-        Right user -> putStrLn $ show user     -- print user to StdOut
+  port <- show <$> readFromArgsOrDefault 3000
+    -- call REST service and unmarshall JSON data into Store instance
+  json <- getJSON port
+  case eitherDecode json :: (Either String User) of
+    Left err -> putStrLn err -- report error
+    Right user -> print user     -- print user to StdOut

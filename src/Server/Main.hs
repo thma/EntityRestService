@@ -32,8 +32,8 @@ mkYesod "App" [parseRoutes|
 -- ROUTE HANDLERS
 getUserR :: Text -> Handler TypedContent
 getUserR id = do
-    user <- liftIO $ (retrieveEntity id :: IO User)
-    returnValidRep user
+  user <- liftIO (retrieveEntity id :: IO User)
+  returnValidRep user
 
 postUserR :: Text -> Handler ()
 postUserR id = do
@@ -42,8 +42,8 @@ postUserR id = do
 
 getPostR :: Text -> Handler TypedContent
 getPostR id = do
-    post <- liftIO $ (retrieveEntity id :: IO Post)
-    returnValidRep post
+  post <- liftIO (retrieveEntity id :: IO Post)
+  returnValidRep post
 
 -- | produce a Representation matching the clients accept header settings
 returnValidRep  :: (MonadHandler m, Show a, ToJSON a) => a -> m TypedContent
